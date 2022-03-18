@@ -29,7 +29,8 @@ def min_avg(house_list):
         x += house_list[idx][0]
         y += house_list[idx][1]
     for loops in range(0, trunc(len(house_list)/2)):  # remove up to median
-
+        heapx = pop(heapx)
+        heapy = pop(heapy)
     x = heapx[0]
     y = heapy[0]
     return [x, y]
