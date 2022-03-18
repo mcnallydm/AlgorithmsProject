@@ -20,9 +20,9 @@ def sorted_min_avg(house_list):
     y = sortedy[trunc(len(sortedy)/2)][1]
     if len(house_list)%2==0:
         x += sortedx[(trunc(len(sortedx)/2)-1)][0]
-        x = x/2
+        x /= 2
         y += sortedy[(trunc(len(sortedy)/2)-1)][1]
-        y = y/2
+        y /= 2
     return [x, y]
 
 
@@ -39,6 +39,6 @@ def avg_avg(house_list):
     for idx in range(0, len(house_list)):
         x += house_list[idx][0]
         y += house_list[idx][1]
-    x = x/len(house_list)
-    y = y/len(house_list)
+    x /= len(house_list)
+    y /= len(house_list)
     return [x, y]

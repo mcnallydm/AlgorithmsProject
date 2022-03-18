@@ -91,7 +91,7 @@ print(sorted_min_avg(ex2), avg_dist(ex2, sorted_min_avg(ex2)), max_dist(ex2, sor
 print("------------------------------------------")
 
 #print(avg_avg(ex3), avg_dist(ex3, avg_avg(ex3)), max_dist(ex3, avg_avg(ex3)))
-print(min_avg(ex3), avg_dist(ex3, min_avg(ex3)), max_dist(ex1, min_avg(ex3)))
+print(min_avg(ex3), avg_dist(ex3, min_avg(ex3)), max_dist(ex3, min_avg(ex3)))
 print(sorted_min_avg(ex3), avg_dist(ex3, sorted_min_avg(ex3)), max_dist(ex3, sorted_min_avg(ex3)))
 #print(range_avg(ex3), avg_dist(ex3, range_avg(ex3)), max_dist(ex3, range_avg(ex3)))
 print("------------------------------------------")
