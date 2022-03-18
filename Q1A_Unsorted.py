@@ -12,12 +12,24 @@ Find the median
 */
 '''
 
+from math import trunc
+
+def push(heap, item):
+    return heap
+
+def pop(heap):
+    return heap
+
 def min_avg(house_list):
     x = 0
     y = 0
-    for idx in range(0, len(house_list)):
+    heapx = [0] * len(house_list)
+    heapy = [0] * len(house_list)
+    for idx in range(0, len(house_list)):   # add to heap
         x += house_list[idx][0]
         y += house_list[idx][1]
-    x = x/len(house_list)
-    y = y/len(house_list)
+    for loops in range(0, trunc(len(house_list)/2)):  # remove up to median
+
+    x = heapx[0]
+    y = heapy[0]
     return [x, y]

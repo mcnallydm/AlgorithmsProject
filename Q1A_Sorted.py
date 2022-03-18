@@ -25,7 +25,7 @@ def sorted_min_avg(house_list):
         y = y/2
     return [x, y]
 
-'''
+
 def range_avg(house_list):
     sortedx = bubble(house_list, 0)
     sortedy = bubble(house_list, 1)
@@ -42,4 +42,3 @@ def avg_avg(house_list):
     x = x/len(house_list)
     y = y/len(house_list)
     return [x, y]
-'''

@@ -6,12 +6,22 @@ from Q1B_Unsorted import *
 from Q2 import *
 from Q3 import *
 
+def dist(pt1, pt2):
+    return abs(pt1[0]-pt2[0]) + abs(pt1[1]-pt2[1])
+
 def avg_dist(list_houses, station):
     avgd = 0
     for idx in range(0, len(list_houses)):
-        avgd += abs(list_houses[idx][0]-station[0]) + abs(list_houses[idx][1]-station[1])
+        avgd += dist(list_houses[idx], station)
     avgd = avgd/len(list_houses)
     return avgd
+
+def max_dist(list_houses, station):
+    maxd = 0
+    for coord in list_houses:
+            if dist(coord, station)>maxd:
+                maxd = dist(coord, station)
+    return maxd
 
 test_arr = [
     [2, 3],
@@ -61,20 +71,21 @@ ex3 = [
     [2, 6]
 ]
 
-print(min_avg(ex1), avg_dist(ex1, min_avg(ex1)))
-print(sorted_min_avg(ex1), avg_dist(ex1, sorted_min_avg(ex1)))
-#print(range_avg(ex1), avg_dist(ex1, range_avg(ex1)))
+print(avg_avg(ex1), avg_dist(ex1, avg_avg(ex1)), max_dist(ex1, avg_avg(ex1)))
+print(sorted_min_avg(ex1), avg_dist(ex1, sorted_min_avg(ex1)), max_dist(ex1, sorted_min_avg(ex1)))
+print(range_avg(ex1), avg_dist(ex1, range_avg(ex1)), max_dist(ex1, range_avg(ex1)))
 print("------------------------------------------")
 
-print(min_avg(ex2), avg_dist(ex2, min_avg(ex2)))
-print(sorted_min_avg(ex2), avg_dist(ex2, sorted_min_avg(ex2)))
-#print(range_avg(ex2), avg_dist(ex2, range_avg(ex2)))
+print(avg_avg(ex2), avg_dist(ex2, avg_avg(ex2)), max_dist(ex2, avg_avg(ex2)))
+print(sorted_min_avg(ex2), avg_dist(ex2, sorted_min_avg(ex2)), max_dist(ex2, sorted_min_avg(ex2)))
+print(range_avg(ex2), avg_dist(ex2, range_avg(ex2)), max_dist(ex2, range_avg(ex2)))
 print("------------------------------------------")
 
-print(min_avg(ex3), avg_dist(ex3, min_avg(ex3)))
-print(sorted_min_avg(ex3), avg_dist(ex3, sorted_min_avg(ex3)))
-#print(range_avg(ex3), avg_dist(ex3, range_avg(ex3)))
+print(avg_avg(ex3), avg_dist(ex3, avg_avg(ex3)), max_dist(ex3, avg_avg(ex3)))
+print(sorted_min_avg(ex3), avg_dist(ex3, sorted_min_avg(ex3)), max_dist(ex3, sorted_min_avg(ex3)))
+print(range_avg(ex3), avg_dist(ex3, range_avg(ex3)), max_dist(ex3, range_avg(ex3)))
 print("------------------------------------------")
 
-print(min_avg(test_arr), avg_dist(test_arr, min_avg(test_arr)))
-print(sorted_min_avg(test_arr), avg_dist(test_arr, sorted_min_avg(test_arr)))
+print(avg_avg(test_arr), avg_dist(test_arr, avg_avg(test_arr)), max_dist(test_arr, avg_avg(test_arr)))
+print(sorted_min_avg(test_arr), avg_dist(test_arr, sorted_min_avg(test_arr)), max_dist(test_arr, sorted_min_avg(test_arr)))
+print(range_avg(test_arr), avg_dist(test_arr, range_avg(test_arr)), max_dist(test_arr, range_avg(test_arr)))
