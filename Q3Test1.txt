@@ -1,0 +1,11 @@
+10
+a b 6 2 c 3 2 e 9 3
+b a 6 2 c 4 1 d 2 1 g 9 2
+c a 3 2 b 4 1 d 2 1 e 9 4 f 9 5
+d b 2 1 c 2 1 f 8 3 g 9 5
+e a 9 3 c 9 4 f 8 4 j 18 10
+f c 9 5 d 8 3 e 8 4 g 7 2 i 9 3 j 10 5
+g b 9 2 d 9 5 f 7 2 h 4 1 i 5 1
+h g 4 1 i 1 1 j 4 2
+i f 9 3 g 5 1 h 1 1 j 3 1
+j e 18 10 f 10 5 h 4 2 i 3 1

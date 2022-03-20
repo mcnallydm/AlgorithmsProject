@@ -71,14 +71,14 @@ ex3 = [
     [2, 6]
 ]
 
-def pushtest():
+'''def pushtest():
     heapx = []
     for idx in range(0, len(ex1)):   # add to heap
         heapx = heapush(heapx, ex1[idx][0])
-        #print(heapx)
+        #print(heapx)'''
 
 
-#print(avg_avg(ex1), avg_dist(ex1, avg_avg(ex1)), max_dist(ex1, avg_avg(ex1)))
+'''#print(avg_avg(ex1), avg_dist(ex1, avg_avg(ex1)), max_dist(ex1, avg_avg(ex1)))
 print(min_avg(ex1), avg_dist(ex1, min_avg(ex1)), max_dist(ex1, min_avg(ex1)))
 print(sorted_min_avg(ex1), avg_dist(ex1, sorted_min_avg(ex1)), max_dist(ex1, sorted_min_avg(ex1)))
 #print(range_avg(ex1), avg_dist(ex1, range_avg(ex1)), max_dist(ex1, range_avg(ex1)))
@@ -99,7 +99,13 @@ print("------------------------------------------")
 #print(avg_avg(test_arr), avg_dist(test_arr, avg_avg(test_arr)), max_dist(test_arr, avg_avg(test_arr)))
 print(min_avg(test_arr), avg_dist(test_arr, min_avg(test_arr)), max_dist(test_arr, min_avg(test_arr)))
 print(sorted_min_avg(test_arr), avg_dist(test_arr, sorted_min_avg(test_arr)), max_dist(test_arr, sorted_min_avg(test_arr)))
-#print(range_avg(test_arr), avg_dist(test_arr, range_avg(test_arr)), max_dist(test_arr, range_avg(test_arr)))
+#print(range_avg(test_arr), avg_dist(test_arr, range_avg(test_arr)), max_dist(test_arr, range_avg(test_arr)))'''
 
 
 #pushtest()
+str = "10\na b 6 0 c 3 0 e 9 0\nb a 6 0 c 4 0 d 2 0 g 9 0\nc a 3 0 b 4 0 d 2 0 e 9 0 f 9 0\nd b 2 0 c 2 0 f 8 0 g 9 0\ne a 9 0 c 9 0 f 8 0 j 18 0\nf c 9 0 d 8 0 e 8 0 g 7 0 i 9 0 j 10 0\ng b 9 0 d 9 0 f 7 0 h 4 0 i 5 0\nh g 4 0 i 1 0 j 4 0\ni f 9 0 g 5 0 h 1 0 j 3 0\nj e 18 0 f 10 0 h 4 0 i 3 0"
+
+print(fromFile("Q2Test1.txt"))
+print(fromString(str))
+print(fromFile("Q2Test1.txt")==fromString(str))
+print(ord("a"))
