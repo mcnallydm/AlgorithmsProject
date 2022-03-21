@@ -113,3 +113,8 @@ print(fromFile("Q2Test1.txt")==fromString(str))'''
 print(min_span_tree("Example.txt"))
 print("------------------------------------------")
 print(min_span_tree("Q2Test1.txt"))
+
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+print(mst_traverse("Example.txt"))
+print("------------------------------------------")
+print(mst_traverse("Q2Test1.txt"))

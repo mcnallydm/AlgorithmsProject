@@ -98,6 +98,7 @@ def min_span_tree(file):
     min_dist = -1
     next_node = ""
     previous_node = 'a'
+    total_dist = 0
     # Find first node's shortest path
     '''for dist_idx in range(2, len(alist[first_node])-1, 3):    # Goes by every 3 elements, because that's the clear cost
         if alist[dist_idx]<min_dist and check_visited[asciindex(alist[dist_idx-1])]!=1:   # Makes sure it hasn't been visited before
@@ -119,7 +120,9 @@ def min_span_tree(file):
         check_visited[asciindex(next_node)] = 1
         visited.append(asciindex(next_node))
         output += previous_node + next_node + "\n"
+        total_dist += min_dist
         '''print("Check visited value: ", check_visited[asciindex(alist[idx][dist_idx-1])])
         print(visited)
         print(check_visited)'''
+    print("Total Distance:", total_dist)
     return output
