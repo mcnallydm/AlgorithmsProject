@@ -1,0 +1,24 @@
+min_avg_dist(house_list):
+    for coord in house_list:
+        # Adds coordinates to corresponding heaps
+        x_heap = add_to_heap(coord[0])
+        y_heap = add_to_heap(coord[1])
+    for coord in len(house_list)//2:
+        # Truncates first half to remove elements up until the median
+        x_heap = pop_from_heap(x_heap)
+        y_heap = pop_from_heap(y_heap)
+    if len(house_list)%2==0:
+        # If there are an even number of houses take the average
+        station_x = heapx[0]
+        station_y = heapy[0]
+    # Get to the odd length median/2nd of the numbers needed for the even median average
+    x_heap = pop_from_heap(x_heap)
+    y_heap = pop_from_heap(y_heap)
+    station_x += heapx[0]
+    station_y += heapy[0]
+    if len(house_list)%2==0:
+        # Continuation of the even length median average
+        station_x /= 2
+        station_y /= 2
+    return [station_x, station_y]
+
