@@ -79,6 +79,17 @@ ex4 = [
     [2, -2]
 ]
 
+ex5 = [
+    [-2, 0],    # -2, -2
+    [-2, 3],    # 1, -5 MINDIFF
+    [-2, -3],   # -5, 1 MINSUM
+    [-1, 1],    # 0, -2
+    [-1, -1],   # -2, 0
+    [-1, -2],   # -3, 1
+    [1, 1],     # 2, 0  MAXSUM
+    [2, -2]     # 0, 4  MAXDIFF
+]
+
 '''def pushtest():
     heapx = []
     for idx in range(0, len(ex1)):   # add to heap
@@ -131,3 +142,4 @@ print(min_max(ex1), max_dist(ex1, min_max(ex1)))
 print(min_max(ex2), max_dist(ex2, min_max(ex2)))
 print(min_max(ex3), max_dist(ex3, min_max(ex3)))
 print(min_max(ex4), max_dist(ex4, min_max(ex4)))
+print(min_max(ex5), max_dist(ex5, min_max(ex5)))

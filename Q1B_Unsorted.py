@@ -12,22 +12,28 @@ def min_max(house_list):
     mindiffpoint = []
     maxsumpoint = []
     maxdiffpoint = []
+    half = 1
     for house in house_list:    # O(n)
         sumxy = house[0]+house[1]
         diffxy = house[0]-house[1]
         if minsum==-1 or sumxy<minsum:
             minsum = sumxy
             minsumpoint = house
-        if mindiff==-1 or diffxy<mindiff:
-            mindiff = diffxy
-            mindiffpoint = house
         if sumxy>maxsum:
             maxsum = sumxy
             maxsumpoint = house
+        if mindiff==-1 or diffxy<mindiff:
+            mindiff = diffxy
+            mindiffpoint = house
         if diffxy>maxdiff:
             maxdiff = diffxy
             maxdiffpoint = house
+    '''print("Minsum:", minsum)
+    print("Maxsum:", maxsum)
+    print("Mindiff:", mindiff)
+    print("Maxdiff:", maxdiff)'''
     minmaxdist = max((maxsum-minsum), (maxdiff-mindiff))/2
+    #print(minmaxdist)
     '''print(minmaxdist)'''
     lowerx = max(minsumpoint[0], mindiffpoint[0])
     upperx = min(maxsumpoint[0], maxdiffpoint[0])
@@ -59,7 +65,18 @@ def min_max(house_list):
     if ((farpoint1==minsumpoint or farpoint1==maxsumpoint) and (farpoint2==minsumpoint or farpoint2==maxsumpoint))or ((farpoint1==mindiffpoint or farpoint1==maxdiffpoint) and (farpoint2==mindiffpoint or farpoint2==maxdiffpoint)):
         x = (farpoint1[0]+farpoint2[0])/2
         y = (farpoint1[1]+farpoint2[1])/2
+        for house in sumdiffs:
+            if dist(house, [x,y])>minmaxdist:
+                half = 0
+                farpoint2 = house
+                if farpoint2==minsumpoint or farpoint2==maxsumpoint:
+                    m2 = -1
+                if farpoint2==mindiffpoint or farpoint2==maxdiffpoint:
+                    m2 = 1
+                break
     else:
+            half = 0
+    if half!=1:
         if farpoint1==minsumpoint or farpoint1==maxdiffpoint:
             intercept1 = farpoint1[1] - (m1*farpoint1[0]) + minmaxdist
         else:
