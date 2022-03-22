@@ -68,6 +68,17 @@ ex3 = [
     [2, 6]
 ]
 
+ex4 = [
+    [-1, 2],
+    [2, 3],
+    [4, 2],
+    [1, 1],
+    [1, -2],
+    [0, -3],
+    [4, -1],
+    [2, -2]
+]
+
 '''def pushtest():
     heapx = []
     for idx in range(0, len(ex1)):   # add to heap
@@ -119,3 +130,4 @@ print(mst_traverse("Q2Test1.txt"))'''
 print(min_max(ex1), max_dist(ex1, min_max(ex1)))
 print(min_max(ex2), max_dist(ex2, min_max(ex2)))
 print(min_max(ex3), max_dist(ex3, min_max(ex3)))
+print(min_max(ex4), max_dist(ex4, min_max(ex4)))
