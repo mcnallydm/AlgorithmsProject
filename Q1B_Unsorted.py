@@ -43,7 +43,7 @@ def min_max(house_list):
     print("Upper Bound X:", upperx)
     print("Lower Bound Y:", lowery)
     print("Upper Bound Y:", uppery)'''
-    sumdiffs = [minsumpoint, mindiffpoint, maxsumpoint, maxdiffpoint]
+    sumdiffs = [minsumpoint, mindiffpoint, maxsumpoint, maxdiffpoint]   # Array of the bounds in which the station can reside
     corners = [[lowerx, lowery], [lowerx, uppery], [upperx, uppery], [upperx, lowery]]
     farthest1 = -1
     farthest2 = -1
