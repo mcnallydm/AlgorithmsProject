@@ -76,3 +76,7 @@ x-y
     J) 4
     K) 5 (max) r
     L) 2
+
+Find intersection of the 2 farthest points from the square
+y = mx + (currenty-mx)
+Top right & bottom left have a negative m

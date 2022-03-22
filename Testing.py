@@ -6,8 +6,12 @@ from Q1B_Unsorted import *
 from Q2 import *
 from Q3 import *
 
-def dist(pt1, pt2):
-    return abs(pt1[0]-pt2[0]) + abs(pt1[1]-pt2[1])
+def max_dist(list_houses, station):
+    maxd = 0
+    for coord in list_houses:
+            if dist(coord, station)>maxd:
+                maxd = dist(coord, station)
+    return maxd
 
 def avg_dist(list_houses, station):
     avgd = 0
@@ -15,13 +19,6 @@ def avg_dist(list_houses, station):
         avgd += dist(list_houses[idx], station)
     avgd = avgd/len(list_houses)
     return avgd
-
-def max_dist(list_houses, station):
-    maxd = 0
-    for coord in list_houses:
-            if dist(coord, station)>maxd:
-                maxd = dist(coord, station)
-    return maxd
 
 test_arr = [
     [2, 3],
@@ -110,11 +107,15 @@ print(fromString(str))
 print(fromFile("Q2Test1.txt")==fromString(str))'''
 
 #print(fromFile("Example.txt"))
-print(min_span_tree("Example.txt"))
+'''print(min_span_tree("Example.txt"))
 print("------------------------------------------")
 print(min_span_tree("Q2Test1.txt"))
 
 print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
 print(mst_traverse("Example.txt"))
 print("------------------------------------------")
-print(mst_traverse("Q2Test1.txt"))
+print(mst_traverse("Q2Test1.txt"))'''
+
+print(min_max(ex1))
+print(min_max(ex2))
+print(min_max(ex3))
