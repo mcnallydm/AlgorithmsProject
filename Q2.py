@@ -121,8 +121,13 @@ def min_span_tree(file):
         check_visited[asciindex(next_node)] = 1
         visited.append(asciindex(next_node))
         output += previous_node + next_node + "\n"
+        total_dist += min_dist
         '''print("Check visited value: ", check_visited[asciindex(alist[idx][dist_idx-1])])
         print(visited)
         print(check_visited)'''
+<<<<<<< HEAD
         print(total_dist)
+=======
+    print("Total Distance:", total_dist)
+>>>>>>> f316d8557f41072cb0037ce041eb3b2ff74b5633
     return output

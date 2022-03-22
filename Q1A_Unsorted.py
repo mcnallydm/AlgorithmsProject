@@ -11,6 +11,7 @@ Sorting helps determine how many are to the left and right of the avg point
 Find the median
 */
 '''
+# TODO: Figure out how the text file is formatted
 
 from math import trunc
 
