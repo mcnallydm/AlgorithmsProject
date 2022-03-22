@@ -28,14 +28,15 @@ def min_max(house_list):
             maxdiff = diffxy
             maxdiffpoint = house
     minmaxdist = max((maxsum-minsum), (maxdiff-mindiff))/2
+    '''print(minmaxdist)'''
     lowerx = max(minsumpoint[0], mindiffpoint[0])
     upperx = min(maxsumpoint[0], maxdiffpoint[0])
     lowery = max(minsumpoint[1], maxdiffpoint[1])
     uppery = min(maxsumpoint[1], mindiffpoint[1])
-    print("Lower Bound X:", lowerx)
+    '''print("Lower Bound X:", lowerx)
     print("Upper Bound X:", upperx)
     print("Lower Bound Y:", lowery)
-    print("Upper Bound Y:", uppery)
+    print("Upper Bound Y:", uppery)'''
     sumdiffs = [minsumpoint, mindiffpoint, maxsumpoint, maxdiffpoint]
     corners = [[lowerx, lowery], [lowerx, uppery], [upperx, uppery], [upperx, lowery]]
     farthest1 = -1
@@ -60,11 +61,15 @@ def min_max(house_list):
         y = (farpoint1[1]+farpoint2[1])/2
     else:
         if farpoint1==minsumpoint or farpoint1==maxdiffpoint:
-            intercept1 = farpoint1[1] + (m1*farpoint1[0]) + minmaxdist
-            intercept2 = farpoint2[1] + (m2*farpoint2[0]) + minmaxdist
+            intercept1 = farpoint1[1] - (m1*farpoint1[0]) + minmaxdist
         else:
-            intercept1 = farpoint1[1] + (m1*farpoint1[0]) - minmaxdist
-            intercept2 = farpoint2[1] + (m2*farpoint2[0]) - minmaxdist
+            intercept1 = farpoint1[1] - (m1*farpoint1[0]) - minmaxdist
+        if farpoint2==minsumpoint or farpoint2==maxdiffpoint:
+            intercept2 = farpoint2[1] - (m2*farpoint2[0]) + minmaxdist
+        else:
+            intercept2 = farpoint2[1] - (m2*farpoint2[0]) - minmaxdist
+        '''print("Intercept 1:",intercept1, m1, farpoint1)
+        print("Intercept 2:",intercept2, m2, farpoint2)'''
         x = (intercept2-intercept1)/(m1-m2)
         y = (m1*x) + intercept1
     return [x, y]
