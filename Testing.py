@@ -116,6 +116,6 @@ print(mst_traverse("Example.txt"))
 print("------------------------------------------")
 print(mst_traverse("Q2Test1.txt"))'''
 
-print(min_max(ex1))
-print(min_max(ex2))
-print(min_max(ex3))
+print(min_max(ex1), max_dist(ex1, min_max(ex1)))
+print(min_max(ex2), max_dist(ex2, min_max(ex2)))
+print(min_max(ex3), max_dist(ex3, min_max(ex3)))
