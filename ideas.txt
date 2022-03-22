@@ -1,0 +1,78 @@
+MD = |x1-x2| + |y1-y2|
+MD = max(|(x1-y1) - (x2-y2)|, |(x1+y1) - (x2+y2)|)
+
+1.
+MD = x1-x2 + y1-y2
+    MD = x1+y1 - x2-y2
+    MD = (x1+y1) - (x2+y2)
+
+2.
+MD = x2-x1 + y1-y2
+    MD = x2-y2 - x1+y1
+    MD = (x2-y2) - (x1-y1)
+
+3.
+MD = x1-x2 + y2-y1
+    MD = x1-y1 - x2+y2
+    MD = (x1-y1) - (x2-y2)
+
+4.
+MD = x2-x1 + y2-y1
+    MD = x2+y2 - x1-y1
+    MD = (x2+y2) - (x1+y1)
+
+1 & 4)
+    |(x1-y1) - (x2-y2)|
+2 & 3)
+    |(x1+y1) - (x2+y2)|
+Use whichever's higher because it covers x1+y1==x2+y2 in 1&4 and everything else in 2&3
+Find the 2 farthest points on the graph with a positive slope and a negative slope (making an X shape)
+Highest x+y (high x high y) is the top right , lowest x+y is the bottom left (low x low y)
+Max x-y is bottom right (high x low y) and min x-y is top left (high y low x)
+If min x-y is the same point as max x+y, then you don't need two upper points because it's so far from everything else that it takes priority
+
+x+y
+    A) 7
+    B) 6
+    C) 5 (min)
+    D) 11
+    E) 7
+    F) 10
+    G) 15 (max)
+
+x-y
+    A) -5 (min)
+    B) -2
+    C) 3
+    D) -1
+    E) 3
+    F) 4 (max)
+    G) 1
+------------------------------------------------------------------------------------
+x+y
+    A) 8
+    B) 6
+    C) 4
+    D) 2 (min) q
+    E) 6
+    F) 5
+    G) 10
+    H) 12
+    I) 8
+    J) 12
+    K) 13
+    L) 18 (max) p
+
+x-y
+    A) -6 (min) s
+    B) -4
+    C) -2
+    D) 0
+    E) 0
+    F) 3
+    G) 0
+    H) 0
+    I) 4
+    J) 4
+    K) 5 (max) r
+    L) 2
