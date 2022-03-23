@@ -1,3 +1,4 @@
+import random
 from SortHouses import *
 from Q1A_Sorted import *
 from Q1A_Unsorted import *
@@ -5,6 +6,29 @@ from Q1B_Sorted import *
 from Q1B_Unsorted import *
 from Q2 import *
 from Q3 import *
+
+def generate_coords():
+    coords = []
+    num_nodes = random.randint(1, 20)
+    x = 0
+    y = 0
+    oddx = random.randint(0, 1)
+    oddy = random.randint(0, 1)
+    for idx in range(0, num_nodes):
+        x = random.randint(0, 20)
+        y = random.randint(0, 20)
+        if oddx==1:
+            x *= -1
+        if oddy==1:
+            y *= -1
+        oddx = random.randint(0, 1)
+        oddy = random.randint(0, 1)
+        coords.append([x,y])
+    return coords
+
+def print_coords(coords):
+    for house in coords:
+        print(house)
 
 def max_dist(list_houses, station):
     maxd = 0
@@ -90,6 +114,21 @@ ex5 = [
     [2, -2]     # 0, 4  MAXDIFF
 ]
 
+tests = [
+    test_arr,
+    ex1,
+    ex2,
+    ex3,
+    ex4,
+    ex5
+]
+
+def add_test(coords, testno):
+    str = "ex" + str(testno) + " = ["
+    # Remove last comma and replace with newline
+    str += "]\n"
+    return str
+
 '''def pushtest():
     heapx = []
     for idx in range(0, len(ex1)):   # add to heap
@@ -143,3 +182,6 @@ print(min_max(ex2), max_dist(ex2, min_max(ex2)))
 print(min_max(ex3), max_dist(ex3, min_max(ex3)))
 print(min_max(ex4), max_dist(ex4, min_max(ex4)))
 print(min_max(ex5), max_dist(ex5, min_max(ex5)))
+print("-----------------------------------------------------------------------------")
+
+print_coords(generate_coords())
