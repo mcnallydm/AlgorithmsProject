@@ -4,10 +4,10 @@ def dist(pt1, pt2):
 def min_max(house_list):
     x = 0
     y = 0
-    minsum = -1     # Bottom left
-    mindiff = -1    # Top left
-    maxsum = -1     # Top right
-    maxdiff = -1    # Bottom Right
+    minsum = ""     # Bottom left
+    mindiff = ""    # Top left
+    maxsum = ""     # Top right
+    maxdiff = ""    # Bottom Right
     minsumpoint = []
     mindiffpoint = []
     maxsumpoint = []
@@ -16,16 +16,16 @@ def min_max(house_list):
     for house in house_list:    # O(n)
         sumxy = house[0]+house[1]
         diffxy = house[0]-house[1]
-        if minsum==-1 or sumxy<minsum:
+        if minsum=="" or sumxy<minsum:
             minsum = sumxy
             minsumpoint = house
-        if sumxy>maxsum:
+        if maxsum=="" or sumxy>maxsum:
             maxsum = sumxy
             maxsumpoint = house
-        if mindiff==-1 or diffxy<mindiff:
+        if mindiff=="" or diffxy<mindiff:
             mindiff = diffxy
             mindiffpoint = house
-        if diffxy>maxdiff:
+        if maxdiff=="" or diffxy>maxdiff:
             maxdiff = diffxy
             maxdiffpoint = house
     '''print("Minsum:", minsum)

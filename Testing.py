@@ -204,11 +204,14 @@ def new_test(file, num_new):
 def run_tests(file):
     tests = get_tests(file)
     station = []
+    i = 0
     for case in tests:
+        print("Test:", i)
         print("Station position:", station)
         station = min_max(case)
         print("Max distance to station:", max_dist(case, station))
         print("----------------------------------------------------------")
+        i += 1
 
 '''def pushtest():
     heapx = []
@@ -271,5 +274,5 @@ print_coords(generate_coords())'''
     add_test(tests[idx], idx)'''
 
 #print(get_tests("Q1Tests.txt"))
-#new_test("Q1Tests.txt", 4)
+#new_test("Q1Tests.txt", 15)
 run_tests("Q1TestOutput.txt")
