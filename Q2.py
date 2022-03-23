@@ -21,7 +21,7 @@ other villages. Your algorithm should determine which roads to clear.
 Give an efficient algorithm (10%): note you can map this problem to a well-known problem we have studied in class, and then state its
 complexity (5%). Then code it (20%); which includes giving at least 2 appropriate test cases in your report.
 '''
-def fromString(str):
+'''def fromString(str):
     str = str.split("\n")
     read = []
     num_nodes = int(str[0])
@@ -35,7 +35,7 @@ def fromString(str):
                     current_line[element] = int(current_line[element])
         adj_list.append(current_line)
     read.append(adj_list)
-    return read
+    return read'''
 
 def fromFile(file):
     num_nodes = 0
@@ -60,12 +60,12 @@ def fromFile(file):
     read.append(adj_list)
     return(read)
 
-def asciindex(str):
+def asciindex(ch):
     idx = 0
-    if ord(str)<=90:
-        idx = ord(str)-39
+    if ord(ch)<=90:
+        idx = ord(ch)-39
     else:
-        idx = ord(str)-97
+        idx = ord(ch)-97
     return idx
 
 def find_prev(asc):

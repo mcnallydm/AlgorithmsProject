@@ -124,10 +124,13 @@ tests = [
 ]
 
 def add_test(coords, testno):
-    str = "ex" + str(testno) + " = ["
+    to_add = "ex" + str(testno) + " = [\n\t" + str(coords[0])
     # Remove last comma and replace with newline
-    str += "]\n"
-    return str
+    for house in range(1, len(coords)):
+        to_add += ",\n\t" + str(coords[house])
+    to_add += "\n]\n"
+    print(to_add)
+    return to_add
 
 '''def pushtest():
     heapx = []
@@ -161,7 +164,7 @@ print(sorted_min_avg(test_arr), avg_dist(test_arr, sorted_min_avg(test_arr)), ma
 
 
 #pushtest()
-str = "10\na b 6 0 c 3 0 e 9 0\nb a 6 0 c 4 0 d 2 0 g 9 0\nc a 3 0 b 4 0 d 2 0 e 9 0 f 9 0\nd b 2 0 c 2 0 f 8 0 g 9 0\ne a 9 0 c 9 0 f 8 0 j 18 0\nf c 9 0 d 8 0 e 8 0 g 7 0 i 9 0 j 10 0\ng b 9 0 d 9 0 f 7 0 h 4 0 i 5 0\nh g 4 0 i 1 0 j 4 0\ni f 9 0 g 5 0 h 1 0 j 3 0\nj e 18 0 f 10 0 h 4 0 i 3 0"
+string = "10\na b 6 0 c 3 0 e 9 0\nb a 6 0 c 4 0 d 2 0 g 9 0\nc a 3 0 b 4 0 d 2 0 e 9 0 f 9 0\nd b 2 0 c 2 0 f 8 0 g 9 0\ne a 9 0 c 9 0 f 8 0 j 18 0\nf c 9 0 d 8 0 e 8 0 g 7 0 i 9 0 j 10 0\ng b 9 0 d 9 0 f 7 0 h 4 0 i 5 0\nh g 4 0 i 1 0 j 4 0\ni f 9 0 g 5 0 h 1 0 j 3 0\nj e 18 0 f 10 0 h 4 0 i 3 0"
 
 '''print(fromFile("Q2Test1.txt"))
 print(fromString(str))
@@ -177,11 +180,13 @@ print(mst_traverse("Example.txt"))
 print("------------------------------------------")
 print(mst_traverse("Q2Test1.txt"))'''
 
-print(min_max(ex1), max_dist(ex1, min_max(ex1)))
+'''print(min_max(ex1), max_dist(ex1, min_max(ex1)))
 print(min_max(ex2), max_dist(ex2, min_max(ex2)))
 print(min_max(ex3), max_dist(ex3, min_max(ex3)))
 print(min_max(ex4), max_dist(ex4, min_max(ex4)))
 print(min_max(ex5), max_dist(ex5, min_max(ex5)))
 print("-----------------------------------------------------------------------------")
 
-print_coords(generate_coords())
+print_coords(generate_coords())'''
+
+add_test(test_arr, 0)
