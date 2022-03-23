@@ -9,7 +9,7 @@ from Q3 import *
 
 def generate_coords():
     coords = []
-    num_nodes = random.randint(1, 20)
+    num_nodes = random.randint(1, 200)
     x = 0
     y = 0
     oddx = random.randint(0, 1)
@@ -201,17 +201,65 @@ def new_test(file, num_new):
         #print(tests[idx])
         add_test(tests[idx], idx)
 
+def get_mmd(house_list):
+    minsum = ""     # Bottom left
+    mindiff = ""    # Top left
+    maxsum = ""     # Top right
+    maxdiff = ""    # Bottom Right
+    for house in house_list:    # O(n)
+        sumxy = house[0]+house[1]
+        diffxy = house[0]-house[1]
+        if minsum=="" or sumxy<minsum:
+            minsum = sumxy
+        if maxsum=="" or sumxy>maxsum:
+            maxsum = sumxy
+        if mindiff=="" or diffxy<mindiff:
+            mindiff = diffxy
+        if maxdiff=="" or diffxy>maxdiff:
+            maxdiff = diffxy
+    minmaxdist = max((maxsum-minsum), (maxdiff-mindiff))/2
+    return minmaxdist
+
 def run_tests(file):
     tests = get_tests(file)
     station = []
     i = 0
     for case in tests:
         print("Test:", i)
-        print("Station position:", station)
+        mmd = get_mmd(case)
         station = min_max(case)
-        print("Max distance to station:", max_dist(case, station))
+        calc_max = max_dist(case, station)
+        if mmd==calc_max:
+            print("Station position:", station)
+            print("Minimum maximum distance:", mmd)
+            print("Max distance to station:", calc_max)
+        else:
+            print("TEST FAILED!\nTheoretical:", mmd, "\nActual:", calc_max)
         print("----------------------------------------------------------")
         i += 1
+
+def run_rando(num_tests):
+    tests = []
+    station = []
+    failed = 0
+    for i in range(0, num_tests):
+        tests.append(generate_coords())
+    j = 0
+    for case in tests:
+        '''print("Test:", j)
+        print(case)'''
+        mmd = get_mmd(case)
+        station = min_max(case)
+        calc_max = max_dist(case, station)
+        if mmd!=calc_max:
+            print("TEST", j, "FAILED!\nTheoretical:", mmd, "\nActual:", calc_max)
+            print(case)
+            failed += 1
+        j += 1
+    if failed!=0:
+        print("Number of failed Tests:", failed)
+    else:
+        print("All", num_tests, "tests passed.")
 
 '''def pushtest():
     heapx = []
@@ -275,4 +323,5 @@ print_coords(generate_coords())'''
 
 #print(get_tests("Q1Tests.txt"))
 #new_test("Q1Tests.txt", 15)
-run_tests("Q1TestOutput.txt")
+#run_tests("Q1TestOutput.txt")
+run_rando(random.randint(100, 500))

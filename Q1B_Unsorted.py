@@ -33,7 +33,7 @@ def min_max(house_list):
     print("Mindiff:", mindiff)
     print("Maxdiff:", maxdiff)'''
     minmaxdist = max((maxsum-minsum), (maxdiff-mindiff))/2
-    print("Minimum maximum distance:", minmaxdist)
+    '''print("Minimum maximum distance:", minmaxdist)'''
     lowerx = max(minsumpoint[0], mindiffpoint[0])
     upperx = min(maxsumpoint[0], maxdiffpoint[0])
     lowery = max(minsumpoint[1], maxdiffpoint[1])
@@ -52,6 +52,8 @@ def min_max(house_list):
     m2 = 1
     for idx in range(0,4):
         if dist(sumdiffs[idx], corners[idx])>farthest1:
+            farthest2 = farthest1
+            farpoint2 = farpoint1
             farthest1 = dist(sumdiffs[idx], corners[idx])
             farpoint1 = sumdiffs[idx]
         elif dist(sumdiffs[idx], corners[idx])>farthest2:
@@ -68,6 +70,7 @@ def min_max(house_list):
             if dist(house, [x,y])>minmaxdist:
                 half = 0
                 farpoint2 = house
+                #print("changed")
                 if farpoint2==minsumpoint or farpoint2==maxsumpoint:
                     m2 = -1
                 if farpoint2==mindiffpoint or farpoint2==maxdiffpoint:
@@ -76,6 +79,7 @@ def min_max(house_list):
     else:
             half = 0
     if half!=1:
+        #print(farpoint2)
         if farpoint1==minsumpoint or farpoint1==maxdiffpoint:
             intercept1 = farpoint1[1] - (m1*farpoint1[0]) + minmaxdist
         else:
