@@ -114,26 +114,92 @@ ex5 = [
     [2, -2]     # 0, 4  MAXDIFF
 ]
 
-tests = [
+'''tests = [
     test_arr,
     ex1,
     ex2,
     ex3,
     ex4,
     ex5
-]
+]'''
 
 def add_test(coords, testno):
-    to_add = "ex" + str(testno) + " = [\n\t" + str(coords[0])
+    to_add = "ex" + str(testno) + " = [\n" + str(coords[0])
     # Remove last comma and replace with newline
     for house in range(1, len(coords)):
-        to_add += ",\n\t" + str(coords[house])
+        to_add += ",\n" + str(coords[house])
     to_add += "\n]\n"
     print(to_add)
     return to_add
 
-def new_test():
-    
+
+def get_tests(file):
+    first = 1
+    tests = []
+    current_test = []
+    data = open(file)
+    x = 0
+    y = 0
+    current_line = data.readline()
+    current_line = data.readline()
+    temp = ""
+    while(1):
+        current_line = data.readline()
+        x = 0
+        y = 0
+        temp = ""
+        #current_line = data.readline()
+        #current_line = data.readline()
+        #print(current_line)
+        if not current_line:
+            tests.append(current_test)
+            break
+        else:
+            current_line = current_line.strip()
+            #print(len(current_line))
+            if len(current_line)>1 and current_line[1]=="[":
+                current_line = current_line[1:len(current_line)-1:2]
+            else:
+                current_line = current_line[0:len(current_line)]
+            #print(current_line)
+            #print(len(current_line))
+            '''if len(current_line)!=1 and current_line[1]!="e" and current_line[1]!="]":
+                xidx = 3
+                yidx = 9
+                if current_line[xidx]=="-":
+                    xidx += 2
+                    yidx +=2
+                if current_line[yidx]=="-":
+                    yidx +=2
+                x = int(current_line[xidx])
+                y = int(current_line[yidx])
+                current_test.append([x, y])'''
+            
+            if len(current_line)>0 and current_line[0]=="[":
+                for ch in current_line:
+                    if ch!="[" and ch!="]" and ch!=",":
+                        temp += ch
+                current_line = temp
+                current_line = current_line.split(" ")
+                #print(current_line)
+                x = int(current_line[0])
+                y = int(current_line[1])
+                current_test.append([x, y])
+                #print(current_test)
+            elif len(current_line)>1 and current_line[0]=="e":
+                tests.append(current_test)
+                current_test = []
+    return tests
+
+def new_test(file):
+    tests = get_tests(file)
+    new_coords = generate_coords()
+    print(tests)
+    tests.append(new_coords)
+    print(tests)
+    for idx in range(0, len(tests)):
+        #print(tests[idx])
+        add_test(tests[idx], idx)
 
 '''def pushtest():
     heapx = []
@@ -167,7 +233,7 @@ print(sorted_min_avg(test_arr), avg_dist(test_arr, sorted_min_avg(test_arr)), ma
 
 
 #pushtest()
-string = "10\na b 6 0 c 3 0 e 9 0\nb a 6 0 c 4 0 d 2 0 g 9 0\nc a 3 0 b 4 0 d 2 0 e 9 0 f 9 0\nd b 2 0 c 2 0 f 8 0 g 9 0\ne a 9 0 c 9 0 f 8 0 j 18 0\nf c 9 0 d 8 0 e 8 0 g 7 0 i 9 0 j 10 0\ng b 9 0 d 9 0 f 7 0 h 4 0 i 5 0\nh g 4 0 i 1 0 j 4 0\ni f 9 0 g 5 0 h 1 0 j 3 0\nj e 18 0 f 10 0 h 4 0 i 3 0"
+#string = "10\na b 6 0 c 3 0 e 9 0\nb a 6 0 c 4 0 d 2 0 g 9 0\nc a 3 0 b 4 0 d 2 0 e 9 0 f 9 0\nd b 2 0 c 2 0 f 8 0 g 9 0\ne a 9 0 c 9 0 f 8 0 j 18 0\nf c 9 0 d 8 0 e 8 0 g 7 0 i 9 0 j 10 0\ng b 9 0 d 9 0 f 7 0 h 4 0 i 5 0\nh g 4 0 i 1 0 j 4 0\ni f 9 0 g 5 0 h 1 0 j 3 0\nj e 18 0 f 10 0 h 4 0 i 3 0"
 
 '''print(fromFile("Q2Test1.txt"))
 print(fromString(str))
@@ -192,4 +258,8 @@ print("-------------------------------------------------------------------------
 
 print_coords(generate_coords())'''
 
-add_test(test_arr, 0)
+'''for idx in range(0, len(tests)):
+    add_test(tests[idx], idx)'''
+
+print(get_tests("Q1Tests.txt"))
+#new_test("Q1Tests.txt")
