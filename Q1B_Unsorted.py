@@ -33,7 +33,7 @@ def min_max(house_list):
     print("Mindiff:", mindiff)
     print("Maxdiff:", maxdiff)'''
     minmaxdist = max((maxsum-minsum), (maxdiff-mindiff))/2
-    print(minmaxdist)
+    print("Minimum maximum distance:", minmaxdist)
     lowerx = max(minsumpoint[0], mindiffpoint[0])
     upperx = min(maxsumpoint[0], maxdiffpoint[0])
     lowery = max(minsumpoint[1], maxdiffpoint[1])

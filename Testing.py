@@ -161,7 +161,7 @@ def get_tests(file):
                 current_line = current_line[1:len(current_line)-1:2]
             else:
                 current_line = current_line[0:len(current_line)]
-            print(current_line)
+            #print(current_line)
             #print(len(current_line))
             '''if len(current_line)!=1 and current_line[1]!="e" and current_line[1]!="]":
                 xidx = 3
@@ -191,15 +191,24 @@ def get_tests(file):
                 current_test = []
     return tests
 
-def new_test(file):
+def new_test(file, num_new):
     tests = get_tests(file)
-    new_coords = generate_coords()
-    print(tests)
-    tests.append(new_coords)
-    print(tests)
+    #print(tests)
+    for i in range(0, num_new):
+        tests.append(generate_coords())
+    #print(tests)
     for idx in range(0, len(tests)):
         #print(tests[idx])
         add_test(tests[idx], idx)
+
+def run_tests(file):
+    tests = get_tests(file)
+    station = []
+    for case in tests:
+        print("Station position:", station)
+        station = min_max(case)
+        print("Max distance to station:", max_dist(case, station))
+        print("----------------------------------------------------------")
 
 '''def pushtest():
     heapx = []
@@ -262,4 +271,5 @@ print_coords(generate_coords())'''
     add_test(tests[idx], idx)'''
 
 #print(get_tests("Q1Tests.txt"))
-new_test("Q1Tests.txt")
+#new_test("Q1Tests.txt", 4)
+run_tests("Q1TestOutput.txt")
