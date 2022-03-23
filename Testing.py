@@ -132,6 +132,9 @@ def add_test(coords, testno):
     print(to_add)
     return to_add
 
+def new_test():
+    
+
 '''def pushtest():
     heapx = []
     for idx in range(0, len(ex1)):   # add to heap
