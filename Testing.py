@@ -157,11 +157,11 @@ def get_tests(file):
         else:
             current_line = current_line.strip()
             #print(len(current_line))
-            if len(current_line)>1 and current_line[1]=="[":
+            if len(current_line)>1 and (current_line[1]=="[" or current_line[1]=="e"):
                 current_line = current_line[1:len(current_line)-1:2]
             else:
                 current_line = current_line[0:len(current_line)]
-            #print(current_line)
+            print(current_line)
             #print(len(current_line))
             '''if len(current_line)!=1 and current_line[1]!="e" and current_line[1]!="]":
                 xidx = 3
@@ -261,5 +261,5 @@ print_coords(generate_coords())'''
 '''for idx in range(0, len(tests)):
     add_test(tests[idx], idx)'''
 
-print(get_tests("Q1Tests.txt"))
-#new_test("Q1Tests.txt")
+#print(get_tests("Q1Tests.txt"))
+new_test("Q1Tests.txt")
