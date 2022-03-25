@@ -4,9 +4,9 @@ from Q1A_Sorted import *
 from Q1A_Unsorted import *
 from Q1B_Sorted import *
 from Q1B_Unsorted import *
-from Q2 import *
+'''from Q2 import *
 from Q3 import *
-
+'''
 def generate_coords():
     coords = []
     num_nodes = random.randint(1, 200)

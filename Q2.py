@@ -21,6 +21,9 @@ other villages. Your algorithm should determine which roads to clear.
 Give an efficient algorithm (10%): note you can map this problem to a well-known problem we have studied in class, and then state its
 complexity (5%). Then code it (20%); which includes giving at least 2 appropriate test cases in your report.
 '''
+
+import sys
+
 '''def fromString(str):
     str = str.split("\n")
     read = []
@@ -54,7 +57,7 @@ def fromFile(file):
             current_line = current_line.strip()
             current_line = current_line.split(" ")
             for element in range(1, len(current_line)):
-                if element%3!=1:
+                if element%3!=1:    # Node letter would be at the index%3==1 because 2 and 0 are numbers
                     current_line[element] = int(current_line[element])
             adj_list.append(current_line)
     read.append(adj_list)
@@ -126,6 +129,9 @@ def min_span_tree(file):
         print(visited)
         print(check_visited)'''
 
-    print("Total Distance:", total_dist)
+    #print("Total Distance:", total_dist)
 
     return output
+
+'''datafile = sys.argv[1]
+print(min_span_tree(datafile))'''
