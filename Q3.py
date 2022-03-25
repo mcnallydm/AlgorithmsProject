@@ -64,16 +64,17 @@ def find_ends(alist):
             start_idx = min_path[0]
             end_idx = min_path[1]
             total = min_path[2]
-    print(start_idx, end_idx)
+    #print(start_idx, end_idx)
     return [start_idx, end_idx]
 
-def mst_traverse(file):
+def mst_traverse(alist, startidx):
     output = ""
-    alist = fromFile(file)
+    #alist = fromFile(file)
     num_nodes = alist[0]
     alist = alist[1]
     #first_node = find_start(alist)
-    first_node = find_ends(alist)[0]
+    #first_node = find_ends(alist)[0]
+    first_node = startidx
     print("Starting node:", find_prev(first_node))
     visited = [first_node]    # List of indexes of visited nodes
     check_visited = [0] * num_nodes   # Binary hash map of nodes using the ascii values
@@ -132,7 +133,7 @@ def mst_traverse(file):
         #print(opened)
         #print("CLEARED:", previous_node, next_node)
     print("Total Distance:", total_dist)
-    return output
+    return [total_dist, output]
 
 def find_min_path(alist, start):
     #print("Shortest path from:", find_prev(start))
@@ -198,3 +199,13 @@ def find_min_path(alist, start):
         output += previous_node + next_node + "\n"
         total_dist += min_dist
     return path'''
+
+def mst3(file):
+    alist = fromFile(file)
+    endpoints = find_ends(alist[1])
+    start1 = mst_traverse(alist, endpoints[0])
+    start2 = mst_traverse(alist, endpoints[1])
+    if start1[0]>start2[0]:
+        return start2[1]
+    else:
+        return start1[1]

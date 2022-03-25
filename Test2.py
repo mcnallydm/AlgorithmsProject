@@ -28,3 +28,8 @@ for n in range(0, len(ex1)):
 for n in range(0, len(exam)):
     print(mst_traverse("Example.txt", n))
     print("------------------------------------------------------------------")'''
+
+ex4 = fromFile("Q3Test4.txt")[1]
+for n in range(0, len(ex4)):
+    print(mst_traverse("Q3Test4.txt", n))
+    print("------------------------------------------------------------------")
