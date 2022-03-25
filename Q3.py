@@ -76,7 +76,7 @@ def mst_traverse(file):
     alist = alist[1]
     first_node = find_ends(alist)[0]
     last_node = find_ends(alist)[1]
-    print("Starting node:", find_prev(first_node))
+    #print("Starting node:", find_prev(first_node))
     visited = [first_node]    # List of indexes of visited nodes
     check_visited = [0] * num_nodes   # Binary hash map of nodes using the ascii values
     check_visited[first_node] = 1
@@ -87,6 +87,7 @@ def mst_traverse(file):
     traverse_dist = 0
     opened = [[]] * num_nodes
     t = 0
+    td = 0
     current_node = previous_node
     for node in range(0, len(alist)):
         opened[node] = [find_prev(node)]
@@ -94,21 +95,32 @@ def mst_traverse(file):
     while len(visited)!=num_nodes:
         min_dist = -1
         t = 0
-        traverse_dist = 0
         next_node = ""
         for idx in visited:
+            traverse_dist = 0
             if idx!=current_node:
-                print(idx, find_prev(idx))
                 traverse_dist += find_min_path(opened, asciindex(current_node))[3][idx]
+                #print("Distance from", current_node, "to", find_prev(idx), "through opened roads:", traverse_dist)
             for dist_idx in range(2, len(alist[idx])-1, 3):    # Goes by every 3 elements, because that's the clear cost
-                traverse_dist += alist[idx][dist_idx]
-                print(traverse_dist)
-                if (traverse_dist<min_dist or min_dist<0) and check_visited[asciindex(alist[idx][dist_idx-1])]!=1:   # Makes sure it hasn't been visited before
-                    min_dist = alist[idx][dist_idx]
+                td = alist[idx][dist_idx] + traverse_dist
+                #print("start", alist[idx][dist_idx-1], "end", current_node)
+                if find_prev(idx)==current_node:
+                    td -= traverse_dist
+                '''if alist[idx][dist_idx-1]==current_node:
+                    td = 0'''
+                #print("Cost from", current_node, "to", find_prev(idx), "to", alist[idx][dist_idx-1], "is:", td)
+                if (td<min_dist or min_dist<0) and check_visited[asciindex(alist[idx][dist_idx-1])]!=1:   # Makes sure it hasn't been visited before
+                    min_dist = td
                     t = alist[idx][dist_idx+1]
                     next_node = alist[idx][dist_idx-1]
                     previous_node = find_prev(idx)
         current_node = next_node
+        for i in range(0, len(alist[asciindex(previous_node)])):
+            if alist[asciindex(previous_node)][i]==current_node:
+                alist[asciindex(previous_node)][i+1] = t
+        for i in range(0, len(alist[asciindex(current_node)])):
+            if alist[asciindex(current_node)][i]==previous_node:
+                alist[asciindex(current_node)][i+1] = t
         opened[asciindex(previous_node)].append(next_node)
         opened[asciindex(previous_node)].append(t)
         opened[asciindex(previous_node)].append(t)
@@ -119,11 +131,13 @@ def mst_traverse(file):
         visited.append(asciindex(next_node))
         output += previous_node + next_node + "\n"
         total_dist += min_dist
-        print(opened)
+        #print(opened)
+        #print("CLEARED:", previous_node, next_node)
     print("Total Distance:", total_dist)
     return output
 
 def find_min_path(alist, start):
+    #print("Shortest path from:", find_prev(start))
     #print(alist)
     # Cycle through all children to find the endpoint
     #furthest = -1
@@ -151,7 +165,7 @@ def find_min_path(alist, start):
                         total = to_visited[asciindex(alist[node][connected])]'''
     total = max(to_visited)
     furthest = to_visited.index(total)
-    print(find_prev(start), find_prev(furthest), total, to_visited)
+    #print(find_prev(start), find_prev(furthest), total, to_visited)
     return [start, furthest, total, to_visited]
     #return [start, furthest, total]
 
