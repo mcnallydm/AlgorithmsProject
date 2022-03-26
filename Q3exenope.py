@@ -1,4 +1,4 @@
-from Q3 import *
+from Q3nope import *
 import sys
  
 datafile = sys.argv[1]

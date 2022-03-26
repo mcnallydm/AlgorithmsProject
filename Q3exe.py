@@ -1,4 +1,4 @@
-from Q3Heap import *
+from Q3 import *
 import sys
  
 datafile = sys.argv[1]

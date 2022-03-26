@@ -1,5 +1,5 @@
 from Q2 import *
-from Q3 import *
+from Q3nope import *
 import random, copy
 '''abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 ascidx = []
