@@ -88,7 +88,7 @@ def mst_traverse(alist, startidx):
     t = 0
     td = 0
     current_node = previous_node
-    for node in range(0, len(alist)):
+    for node in range(0, num_nodes):
         opened[node] = [find_prev(node)]
     # Find first node's shortest path
     while len(visited)!=num_nodes:
@@ -202,10 +202,20 @@ def find_min_path(alist, start):
 
 def mst3(file):
     alist = fromFile(file)
-    endpoints = find_ends(alist[1])
+    output = ""
+    cost = -1
+    temp = []
+    for n in range(0, len(alist[1])):
+        temp = mst_traverse(alist, n)
+        if output=="" or temp[0]<cost:
+            output = temp[1]
+            cost = temp[0]
+    print("FINAL COST:", cost)
+    '''endpoints = find_ends(alist[1])
     start1 = mst_traverse(alist, endpoints[0])
     start2 = mst_traverse(alist, endpoints[1])
     if start1[0]>start2[0]:
         return start2[1]
     else:
-        return start1[1]
+        return start1[1]'''
+    return output
