@@ -6,7 +6,7 @@ def mst_traverse(alist, startidx):
     num_nodes = alist[0]
     alist = alist[1]
     first_node = startidx
-    print("Starting node:", find_prev(first_node))
+    #print("Starting node:", find_prev(first_node))
     visited = [first_node]    # List of indexes of visited nodes
     check_visited = [0] * num_nodes   # Binary hash map of nodes using the ascii values
     check_visited[first_node] = 1
@@ -56,7 +56,7 @@ def mst_traverse(alist, startidx):
         visited.append(asciindex(next_node))
         output += previous_node + next_node + "\n"
         total_dist += min_dist
-    print("Total Distance:", total_dist)
+    #print("Total Distance:", total_dist)
     return [total_dist, output]
 
 def find_min_path(alist, start):
