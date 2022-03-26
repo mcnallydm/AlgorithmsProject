@@ -1,10 +1,10 @@
 9
 a c 7 4 d 3 2
-b c 14 8 d 12 6 e 1 1 f 4 1
+b c 14 8 d 12 6 e 1 1 f 4 2
 c a 7 4 b 14 8 d 6 3 g 2 1
 d a 3 2 b 12 6 c 6 3 h 16 8
 e b 1 1
-f b 4 1
+f b 4 2
 g c 2 1 h 3 1 i 5 4
 h d 16 8 g 3 1
 i g 5 4
