@@ -32,3 +32,68 @@ min_avg_dist(sorted_x, sorted_y):
         station_x /= 2
         station_y /= 2
     return [station_x, station_y]
+
+min_max_dist(house_list):
+    for house in house_list:
+        sumxy = house[0]+house[1]
+        diffxy = house[0]-house[1]
+        if sumxy<minsum:
+            minsum = sumxy
+            minsumpoint = house
+        if sumxy>maxsum:
+            maxsum = sumxy
+            maxsumpoint = house
+        if diffxy<mindiff:
+            mindiff = diffxy
+            mindiffpoint = house
+        if diffxy>maxdiff:
+            maxdiff = diffxy
+            maxdiffpoint = house
+    minmaxdist = max((maxsum-minsum), (maxdiff-mindiff))/2
+    # Find the bounds of the center area
+    lowerx = max(minsumpoint[0], mindiffpoint[0])
+    upperx = min(maxsumpoint[0], maxdiffpoint[0])
+    lowery = max(minsumpoint[1], maxdiffpoint[1])
+    uppery = min(maxsumpoint[1], mindiffpoint[1])
+    for (i=0; i<4; i++) {
+        if the distance from one of the corners to the nearest bound > previous_farthest:
+            c2 = the previous furthest point
+            c1 = corner
+            second farthest = previous_farthest
+            previous_farthest = distance to nearest bound
+        else if the distance from one of the corners to the nearest bound > second_farthest {
+            c2 = corner
+            distance to nearest bound
+        }
+    }
+    if c1==minsumpoint or c1==maxsumpoint {
+        m1 = -1
+    }
+    if c2==minsumpoint or c2==maxsumpoint {
+        m2 = -1
+    }
+    if m1==m2 {
+        test.x = (c1.x + c2.x)/2
+        test.y = (c1.y + c2.y)/2
+        for house in list of corners {
+            if dist from test to corner > minmaxdist {
+                c2 = house
+                if c2==minsumpoint or c2==maxsumpoint {
+                    m2 = -1
+                }
+            }
+        }
+    }
+    if m1!=m2 {
+        if farpoint1==minsumpoint or farpoint1==maxdiffpoint:
+            intercept1 = c1[1] - (m1*c1[0]) + minmaxdist
+        else:
+            intercept1 = c1[1] - (m1*c1[0]) - minmaxdist
+        if farpoint2==minsumpoint or farpoint2==maxdiffpoint:
+            intercept2 = c2[1] - (m2*c2[0]) + minmaxdist
+        else:
+            intercept2 = c2[1] - (m2*c2[0]) - minmaxdist
+        x = (intercept2-intercept1)/(m1-m2)
+        y = (m1*x) + intercept1
+    }
+    return [x, y]

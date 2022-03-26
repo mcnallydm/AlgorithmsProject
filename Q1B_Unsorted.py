@@ -66,6 +66,7 @@ def min_max(house_list):
     if ((farpoint1==minsumpoint or farpoint1==maxsumpoint) and (farpoint2==minsumpoint or farpoint2==maxsumpoint))or ((farpoint1==mindiffpoint or farpoint1==maxdiffpoint) and (farpoint2==mindiffpoint or farpoint2==maxdiffpoint)):
         x = (farpoint1[0]+farpoint2[0])/2
         y = (farpoint1[1]+farpoint2[1])/2
+        print("C1:", farpoint1, "C2:", farpoint2)
         for house in sumdiffs:
             if dist(house, [x,y])>minmaxdist:
                 half = 0
@@ -79,6 +80,7 @@ def min_max(house_list):
     else:
             half = 0
     if half!=1:
+        print("C1:", farpoint1, "C2:", farpoint2)
         #print(farpoint2)
         if farpoint1==minsumpoint or farpoint1==maxdiffpoint:
             intercept1 = farpoint1[1] - (m1*farpoint1[0]) + minmaxdist

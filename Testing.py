@@ -323,5 +323,5 @@ print_coords(generate_coords())'''
 
 #print(get_tests("Q1Tests.txt"))
 #new_test("Q1Tests.txt", 15)
-#run_tests("Q1TestOutput.txt")
-run_rando(random.randint(100, 500))
+run_tests("Q1TestOutput.txt")
+#run_rando(random.randint(100, 500))

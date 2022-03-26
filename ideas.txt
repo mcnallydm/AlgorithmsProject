@@ -80,3 +80,27 @@ x-y
 Find intersection of the 2 farthest points from the square
 y = mx + (currenty-mx)
 Top right & bottom left have a negative m
+
+x+y
+    A) 4 (min)
+    B) 8
+    C) 7
+    D) 4 (min)
+    E) 6
+    F) 5
+    G) 7
+    H) 7
+    I) 9
+    J) 12 (max)
+
+x-y
+    H) 5 (max)
+    E) 2
+    G) 3
+    I) 5 (max)
+    A) -2
+    C) -1
+    D) 0
+    J) 4
+    B) -4 (min)
+    F) -3
